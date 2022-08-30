@@ -72,10 +72,14 @@ const checkError = (guessNum) => {
 
 
 (async () => {
-    do {
-        checkError(await findNumber())
+    while(checkError(await findNumber())) {
+        try {
+            checkError(await findNumber());
+        } catch (err) {
+            break;
+        }
     }
-    while(checkError(await findNumber())) 
-
+        
 }) ()
+
 
